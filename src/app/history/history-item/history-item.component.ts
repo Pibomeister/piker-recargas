@@ -1,11 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/core';
 
 import { Recarga } from './../../recarga';
 
 @Component({
   selector: 'app-history-item',
   template: `
-        <li class="list-group-item justify-content-between">
+        <li [@flyInOut] class="list-group-item justify-content-between">
           <span>{{rec.date | date: "short"}}</span>
               {{rec.number}}
           <span class="badge badge-default badge-pill">$ {{rec.amount}}.00</span>
@@ -15,8 +24,21 @@ import { Recarga } from './../../recarga';
     .list-group-item{
       margin-top: 10px;
     }
-  `]
+  `],
+  animations: [
+  trigger('flyInOut', [
+    state('in', style({transform: 'translateX(0)'})),
+    transition(':enter', [
+      style({transform: 'translateX(-100%)'}),
+      animate('250ms ease-in')
+    ]),
+    transition(':leave', [
+      animate('250ms ease-out', style({transform: 'translateX(100%)'}))
+    ])
+  ])
+]
 })
+
 export class HistoryItemComponent implements OnInit {
   @Input() rec: Recarga;
   

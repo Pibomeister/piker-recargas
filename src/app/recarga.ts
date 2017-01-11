@@ -1,5 +1,5 @@
 export class Recarga {
-    id: string;
+    _id: string;
     number: string;
     amount: number;
     date: string;
