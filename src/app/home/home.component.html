@@ -1,3 +1,21 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+      <div class="card">
+        <div class="card-block">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+              <label>Número telefónico</label>
+              <input type="text" name="number" class="form-control"  placeholder="Ingrese Número" ngModel required pattern="\d{10}">
+            </div>
+            <div class="form-group">
+              <label>Monto</label>
+              <input type="number" name="amount" class="form-control"  placeholder="Monto" ngModel required>
+            </div>
+            <button type="submit" class="full-width btn btn-primary align-right">Pedir recarga</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
