@@ -1,34 +1,36 @@
-
-
 <div class="container">
   <template ngbModalContainer #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title"><i class="green fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Éxito</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <div class="modal-header">
+      <h4 class="modal-title"><i class="green fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Éxito</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="modal-body">
-    <p>Recarga por $ <strong>{{amount}}.00</strong> para el numero <strong>{{number}}</strong> concluida satisfactoriamente.</p>
-  </div>
-  <div class="modal-footer">
-    <a type="button" class="btn btn-primary"[routerLink]="['/history']">Ver recargas</a>
-    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-  </div>
-</template>
-
+    </div>
+    <div class="modal-body">
+      <p>Recarga por $ <strong>{{amount}}.00</strong> para el numero <strong>{{number}}</strong> concluida satisfactoriamente.</p>
+    </div>
+    <div class="modal-footer">
+      <a type="button" class="btn btn-primary" [routerLink]="['/history']">Ver recargas</a>
+      <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+  </template>
   <div class="row">
     <div class="col align-self-center">
       <div class="card">
         <div class="card-block">
           <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="form-group">
-              <label>Número telefónico</label>
-              <input type="text" name="number" class="form-control"  placeholder="Ingrese Número" ngModel required pattern="\d{10}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-mobile fa-2x" aria-hidden="true"></i></span>
+                <input type="text" name="number" class="form-control" placeholder="Ingrese Número" ngModel required pattern="\d{10}">
+              </div>
             </div>
             <div class="form-group">
-              <label>Monto</label>
-              <input type="number" name="amount" class="form-control"  placeholder="Monto" ngModel required>
+              <div class="input-group">
+                <span class="input-group-addon t-2">$</span>
+                <input type="number" class="form-control" name="amount" placeholder="Monto" ngModel required>
+                <span class="input-group-addon">.00</span>
+              </div>
             </div>
             <button type="submit" class="full-width btn btn-primary align-right"><i *ngIf="isLoading" class=" fa fa-spinner fa-pulse fa-fw"></i>Pedir recarga</button>
           </form>
