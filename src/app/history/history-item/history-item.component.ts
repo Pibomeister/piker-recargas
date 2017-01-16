@@ -15,8 +15,8 @@ import { Recarga } from './../../recarga';
   selector: 'app-history-item',
   template: `
         <li [@flyInOut] class="list-group-item justify-content-between">
-          <span>{{rec.date | date: "short"}}</span>
-              {{rec.number}}
+          <small>{{rec.date | date: "short"}}</small>
+              <strong>{{rec.number}}</strong>
           <span class="badge badge-default badge-pill">$ {{rec.amount}}.00</span>
         </li>
   `,

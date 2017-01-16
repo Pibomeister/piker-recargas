@@ -1,18 +1,29 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-faded">
-  <button class="navbar-toggler" type="button" [ngClass]="{collapsed: isCollapsed}"  (click)="isCollapsed = ! isCollapsed">
+  <button class="navbar-toggler" type="button" [ngClass]="{collapsed: isCollapsed}" (click)="isCollapsed = ! isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" [ngClass]="{show: !isCollapsed}">
     <a class="navbar-brand" [routerLink]="['/home']">
-    <img src="/assets/img/motapod.png" height="20" alt="">
-    Piker-recarga
-  </a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item" >
+      <img src="/assets/img/motapod.png" height="20" alt=""> Piker-recarga
+    </a>
+    <ul class="nav navbar-nav float-xs-left">
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/history']" [routerLinkActive]="['active']">Historial</a>
+      </li>
+    </ul>
+    <ul class="spacer"></ul>
+    <ul class="nav navbar-nav  float-xs-right">
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle> 
+          {{user.email}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" [routerLink]="['/profile']"><i class="fa fa-user" aria-hidden="true"></i> Mi cuenta</a>
+          <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión</a>
+        </div>
       </li>
     </ul>
   </div>

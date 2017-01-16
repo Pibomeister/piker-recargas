@@ -1,3 +1,8 @@
 .top-margin{
     margin-top: 15px;
 }
+
+.list-group{
+    max-width: 800px;
+    margin: 0 auto;
+}

@@ -2,3 +2,21 @@
     background: rgba(0, 0, 0, 0.2);
     color: white !important;
 }
+
+.dropdown{
+    cursor: pointer;
+}
+
+.dropdown-menu{
+    z-index: 999 !important;
+}
+
+.navbar{
+    z-index: 99;
+}
+
+
+
+.spacer{
+    flex: 1 1 auto;
+}

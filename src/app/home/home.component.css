@@ -1,5 +1,10 @@
 .row{
-    height: 600px;
+    height: 80vh;
+}
+
+.card {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 template{
@@ -16,4 +21,8 @@ template{
 
 .t-2{
     font-size: 1.3em;
+}
+
+.alert{
+  margin-top: 5px;
 }
